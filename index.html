@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto-Trigger Request</title>
+  </head>
+  <body>
+    <!-- Add a link to the HTML page -->
+    <!-- <a href="#" id="triggerLink">Click to Trigger Request</a> -->
+
+    <script>
+          // Create a new XMLHttpRequest (XHR) object
+          var xhr = new XMLHttpRequest();
+          // xhr.setRequestHeader()
+
+          // Define the URL for the request
+          var requestUrl =
+            "http://localhost:8300/interface/patient_file/deleter.php" +
+            "?patient=" +
+            "&encounterid=" +
+            "&formid=" +
+            "&issue=2" +
+            "&document=" +
+            "&payment=" +
+            "&billing=" +
+            "&transaction=" +
+            "&csrf_token_form=247d2d9fc3b366eb13c8dc062c0344fc549241d2";
+
+          // Configure the XHR object with a GET request to the specified URL
+          xhr.open("GET", requestUrl);
+
+          // Define a callback function to handle the response
+          xhr.onload = function () {
+            if (xhr.status === 200) {
+              console.log("Request was successful.");
+            } else {
+              console.log("Request failed with status: " + xhr.status);
+            }
+          };
+
+          // Send the XHR request
+          xhr.send();
+    </script>
+  </body>
+</html>
